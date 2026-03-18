@@ -1,23 +1,24 @@
 <template>
-    <div>
-        <h2>{{homeless.date_of_census}}</h2>
-    </div>
+  <div>
+    <h2 v-if="homeless">{{ homeless.date_of_census }}</h2>
+  </div>
 </template>
 
 <script setup>
-import {onMounted, ref, watch} from 'vue'
+import { onMounted, ref } from 'vue'
+
 const homeless = ref({})
-async function getData(){
-    const reponse = await fetch('https://data.cityofnewyork.us/resource/k46n-sa2m.json')
-    const data = reponse.json()
-    homeless.value = data
+
+async function getData() {
+  const response = await fetch('https://data.cityofnewyork.us/resource/k46n-sa2m.json')
+  const data = await response.json()
+  homeless.value = data[0]
 }
 
-onMounted(function(){
-    getData(route.params.id)
+onMounted(() => {
+  getData()
 })
 </script>
 
-<style  scoped>
-
+<style scoped>
 </style>

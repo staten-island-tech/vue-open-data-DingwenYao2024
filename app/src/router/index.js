@@ -11,7 +11,7 @@ const router = createRouter({
       component: MainPage,
     },
     {
-      path: '/date/:id',
+      path: '/data',
       name: 'homeless data',
       component: HomelessCard,
     },
