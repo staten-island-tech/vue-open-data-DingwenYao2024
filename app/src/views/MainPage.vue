@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Homeless Shelter Stats</h1>
     <HomelessCard
       v-for="(home, index) in homeless"
       :key="index"
@@ -26,8 +27,6 @@ async function getData() {
     }
 
     const result = await response.json()
-
-    // limit results so UI doesn't overload
     homeless.value = result.slice(0, 12)
 
   } catch (error) {
@@ -48,5 +47,11 @@ onMounted(() => {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
 }
 </style>
