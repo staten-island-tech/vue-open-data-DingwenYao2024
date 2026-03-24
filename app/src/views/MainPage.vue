@@ -27,7 +27,7 @@ async function getData() {
     }
 
     const result = await response.json()
-    homeless.value = result.slice(0, 12)
+    homeless.value = result.slice(0, 1000)
 
   } catch (error) {
     console.error(error.message)
