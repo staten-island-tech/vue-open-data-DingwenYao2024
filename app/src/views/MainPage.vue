@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Homeless Shelter Stats</h1>
+    <h1>Homeless Shelter Stats (by days)</h1>
     <HomelessCard
       v-for="(home, index) in homeless"
       :key="index"
@@ -27,7 +27,7 @@ async function getData() {
     }
 
     const result = await response.json()
-    homeless.value = result.slice(0, 1000)
+    homeless.value = result.slice(0, 1001)
 
   } catch (error) {
     console.error(error.message)
