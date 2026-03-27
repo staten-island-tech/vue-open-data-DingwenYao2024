@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <h1>Homeless Shelter Stats (by days)</h1>
+    <RouterLink to = "/total"> Total Individuals in the Homeless Shelter (by days) </RouterLink>
+    <RouterLink to = "/total"> Total Individuals in the Homeless Shelter (by days) </RouterLink>
     <HomelessCard
       v-for="(home, index) in homeless"
       :key="index"
@@ -41,17 +43,57 @@ onMounted(() => {
 
 <style scoped>
 .container {
-  width: 80vw;
-  margin: 30px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 h1 {
-  width: 100%;
+  font-size: 40px;
   text-align: center;
-  font-size: 100px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  grid-column: 1 / -1;
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: #3498db;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  color: #1d6fa5;
+  text-decoration: underline;
+}
+
+a {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .container {
+    padding: 10px;
+  }
 }
 </style>

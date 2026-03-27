@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Total Individuals in the Homeless Shelter (by days)</h1>
+    <RouterLink to = "/" class="return"> Back</RouterLink>
     <div class="chart-wrapper">
       <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
     </div>
@@ -69,15 +70,56 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.chart-wrapper {
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  width: 100%;
   text-align: center;
-  font-size: 100px;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #2c3e50;
+}
+
+.return {
+  display: inline-block;
+  margin-bottom: 24px;
+  text-decoration: none;
+  color: white;
+  background-color: #42b983;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.return:hover {
+  background-color: #369f6b;
+  transform: translateY(5px);
+}
+
+.chart-wrapper {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .chart-wrapper {
+    padding: 16px;
+  }
 }
 </style>
